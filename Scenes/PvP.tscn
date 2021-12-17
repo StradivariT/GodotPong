@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Boundaries/BoundaryHorizontal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Ball/Ball.tscn" type="PackedScene" id=3]
+
+[node name="PvP" type="Node2D"]
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Player Right" parent="Players" instance=ExtResource( 1 )]
+position = Vector2( 980, 288 )
+_isRight = true
+
+[node name="Player Left" parent="Players" instance=ExtResource( 1 )]
+position = Vector2( 44, 288 )
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="BoundaryTop" parent="Boundaries" instance=ExtResource( 2 )]
+position = Vector2( 512, -10 )
+
+[node name="BoundaryBottom" parent="Boundaries" instance=ExtResource( 2 )]
+position = Vector2( 512, 586 )
+
+[node name="Ball" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, 288 )
