@@ -5,11 +5,12 @@ public class Ball : KinematicBody2D {
 	[Export]
 	private int _speed = 700;
 
-	private float _minAngle = 0.698f; // 40 degrees in radians
-	private float _maxAngle = 0.872f; // 50 degrees in radians
+	private const float _minAngle = 0.698f; // 40 degrees in radians
+	private const float _maxAngle = 0.872f; // 50 degrees in radians
 
 	private Random _random;
 	private bool _shouldMove;
+
 	private Vector2 _velocity;
 
 	public override void _Ready() {
@@ -36,6 +37,11 @@ public class Ball : KinematicBody2D {
 			_velocity.x *= -1;
 		else
 			_velocity.y *= -1;
+	}
+
+	public void ResetPosition(Vector2 position) {
+		Position = position;
+		_shouldMove = false;
 	}
 
 	private int GetRandomDirection(Random random) {

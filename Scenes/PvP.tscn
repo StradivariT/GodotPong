@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Entities/Boundaries/BoundaryHorizontal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Boundary/Boundary.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Ball/Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Goal/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/GameManager/GameManager.tscn" type="PackedScene" id=5]
 
 [node name="PvP" type="Node2D"]
 
+[node name="GameManager" parent="." instance=ExtResource( 5 )]
+
 [node name="Players" type="Node2D" parent="."]
+
+[node name="Player Left" parent="Players" instance=ExtResource( 1 )]
+position = Vector2( 44, 288 )
 
 [node name="Player Right" parent="Players" instance=ExtResource( 1 )]
 position = Vector2( 980, 288 )
 _isRight = true
-
-[node name="Player Left" parent="Players" instance=ExtResource( 1 )]
-position = Vector2( 44, 288 )
 
 [node name="Boundaries" type="Node2D" parent="."]
 
@@ -22,6 +26,15 @@ position = Vector2( 512, -10 )
 
 [node name="BoundaryBottom" parent="Boundaries" instance=ExtResource( 2 )]
 position = Vector2( 512, 586 )
+
+[node name="Goals" type="Node2D" parent="."]
+
+[node name="GoalLeft" parent="Goals" instance=ExtResource( 4 )]
+position = Vector2( -10, 288 )
+
+[node name="GoalRight" parent="Goals" instance=ExtResource( 4 )]
+position = Vector2( 1034, 288 )
+_isRight = true
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 288 )
