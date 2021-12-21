@@ -17,7 +17,7 @@ public class GameManager : Node2D {
 
 		Node parent = GetParent();
 
-		_scoreUI = parent.GetNode<Score>("UI/Score");
+		_scoreUI = parent.GetNode<Score>("ScoreUI/Score");
 		_ball = parent.GetNode<Ball>("Ball");
 
 		Node2D goals = parent.GetNode<Node2D>("Goals");
