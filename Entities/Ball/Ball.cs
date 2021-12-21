@@ -8,21 +8,27 @@ public class Ball : KinematicBody2D {
 	private const float _minAngle = 0.698f; // 40 degrees in radians
 	private const float _maxAngle = 0.872f; // 50 degrees in radians
 
-	private Random _random;
 	private bool _shouldMove;
+	private bool _startMoving;
+
+	private Random _random;
 
 	private Vector2 _velocity;
 
+	private AnimationPlayer _animationPlayer;
+
 	public override void _Ready() {
 		_random = new Random();
+		
 		_shouldMove = false;
+		_startMoving = false;
+
+		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 	}
 
 	public override void _Input(InputEvent inputEvent) {
-		if (!_shouldMove && inputEvent.IsActionPressed("startGame")) {
-			_velocity = GetInitialVelocity(_random, _speed, _minAngle, _maxAngle);
-			_shouldMove = true;
-		}
+		if (!_startMoving && inputEvent.IsActionPressed("startGame"))
+			_startMoving = true;
 	}
 
 	public override void _PhysicsProcess(float delta) {
@@ -39,9 +45,22 @@ public class Ball : KinematicBody2D {
 			_velocity.y *= -1;
 	}
 
+	private void StartMovingIfEnabled() {
+		if (!_startMoving)
+			return;
+
+		_shouldMove = true;
+		_animationPlayer.Stop();
+		_velocity = GetInitialVelocity(_random, _speed, _minAngle, _maxAngle);
+	}
+
 	public void ResetPosition(Vector2 position) {
 		Position = position;
+
 		_shouldMove = false;
+		_startMoving = false;
+
+		_animationPlayer.Play("Idle");
 	}
 
 	private int GetRandomDirection(Random random) {
