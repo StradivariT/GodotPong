@@ -45,6 +45,7 @@ position = Vector2( -10, 288 )
 
 [node name="GoalRight" parent="Goals" instance=ExtResource( 4 )]
 position = Vector2( 1034, 288 )
+scale = Vector2( -1, 1 )
 _isRight = true
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
