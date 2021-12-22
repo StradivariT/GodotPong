@@ -10,16 +10,16 @@
 
 [node name="PvP" type="Node2D"]
 
-[node name="StartGamePromptUI" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="StartGamePrompt" parent="StartGamePromptUI" instance=ExtResource( 7 )]
+[node name="GameManager" parent="." instance=ExtResource( 5 )]
 
 [node name="ScoreUI" type="CanvasLayer" parent="."]
 
 [node name="Score" parent="ScoreUI" instance=ExtResource( 6 )]
 
-[node name="GameManager" parent="." instance=ExtResource( 5 )]
+[node name="StartGamePromptUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="StartGamePrompt" parent="StartGamePromptUI" instance=ExtResource( 7 )]
 
 [node name="Players" type="Node2D" parent="."]
 

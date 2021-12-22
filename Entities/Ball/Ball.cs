@@ -60,7 +60,7 @@ public class Ball : KinematicBody2D {
 		_shouldMove = false;
 		_startMoving = false;
 
-		_animationPlayer.Play("Idle");
+		PlayAnimation("Spawn");
 	}
 
 	private int GetRandomDirection(Random random) {
@@ -74,5 +74,9 @@ public class Ball : KinematicBody2D {
 		float angle = ((float)random.NextDouble() * (maxAngle - minAngle)) + minAngle;
 
 		return new Vector2(Mathf.Cos(angle) * xDirection, Mathf.Sin(angle) * yDirection) * speed;
+	}
+
+	private void PlayAnimation(string animationName) {
+		_animationPlayer.Play(animationName);
 	}
 }
