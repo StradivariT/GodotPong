@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Paddle.png-8fba134ee2196aeae7c7b2250508798e.stex"
+path="res://.import/Ball.png-3867b59bf72a171c007d588a359b49ba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/Paddle.png"
-dest_files=[ "res://.import/Paddle.png-8fba134ee2196aeae7c7b2250508798e.stex" ]
+source_file="res://Entities/Ball/Sprites/Ball.png"
+dest_files=[ "res://.import/Ball.png-3867b59bf72a171c007d588a359b49ba.stex" ]
 
 [params]
 
