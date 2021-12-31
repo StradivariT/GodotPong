@@ -3,6 +3,7 @@ using Godot;
 public class GameManager : Node2D {
 	private Ball _ball;
 	private Score _scoreUI;
+	private GameCamera _gameCamera;
 
 	private Vector2 _fieldCenter;
 
@@ -17,6 +18,7 @@ public class GameManager : Node2D {
 
 		Node parent = GetParent();
 
+		_gameCamera = parent.GetNode<GameCamera>("GameCamera");
 		_scoreUI = parent.GetNode<Score>("ScoreUI/Score");
 		_ball = parent.GetNode<Ball>("Ball");
 
@@ -28,5 +30,6 @@ public class GameManager : Node2D {
 	private void OnGoal_GoalScored(bool isRightGoal) {
 		_scoreUI.UpdateScore(!isRightGoal, isRightGoal ? ++_leftScore : ++_rightScore);
 		_ball.ResetPosition(_fieldCenter);
+		_gameCamera.Shake();
 	}
 }
