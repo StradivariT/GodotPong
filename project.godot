@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Pong"
-run/main_scene="res://Scenes/PvP.tscn"
+run/main_scene="res://UI/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [debug]

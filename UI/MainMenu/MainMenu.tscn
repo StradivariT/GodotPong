@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/MainMenu/Logo.png" type="Texture" id=1]
+[ext_resource path="res://UI/Theme.tres" type="Theme" id=2]
+[ext_resource path="res://UI/Font/DogicaPixelBondSmall.tres" type="DynamicFont" id=3]
+[ext_resource path="res://UI/MainMenu/ExitButton.cs" type="Script" id=4]
+[ext_resource path="res://UI/MainMenu/ChangeSceneButton.cs" type="Script" id=5]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogoTexture" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -252.0
+margin_top = 46.0
+margin_right = 252.0
+margin_bottom = 194.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -12.0
+margin_right = 137.0
+margin_bottom = 119.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerVsPlayerButton" type="Button" parent="ButtonsContainer"]
+margin_right = 273.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+shortcut_in_tooltip = false
+text = "Player vs Player"
+align = 0
+script = ExtResource( 5 )
+_nextScenePath = "res://Scenes/PvP.tscn"
+
+[node name="PlayerVsComputerButton" type="Button" parent="ButtonsContainer"]
+margin_top = 45.0
+margin_right = 273.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+shortcut_in_tooltip = false
+text = "Player vs Computer"
+align = 0
+
+[node name="ExitButton" type="Button" parent="ButtonsContainer"]
+margin_top = 90.0
+margin_right = 273.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+shortcut_in_tooltip = false
+text = "Exit"
+align = 0
+script = ExtResource( 4 )
+
+[node name="CreditLabel" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -224.0
+margin_top = -37.0
+custom_fonts/font = ExtResource( 3 )
+text = "By StradivariT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="ButtonsContainer/PlayerVsPlayerButton" to="ButtonsContainer/PlayerVsPlayerButton" method="OnChangeSceneButton_ButtonUp"]
+[connection signal="button_up" from="ButtonsContainer/ExitButton" to="ButtonsContainer/ExitButton" method="OnExitButton_ButtonUp"]
